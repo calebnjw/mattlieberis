@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/mattlieberis/static/css/main.073c9b0a.css",
+    "main.js": "/mattlieberis/static/js/main.7fdf7202.js",
+    "static/js/787.33d83bbc.chunk.js": "/mattlieberis/static/js/787.33d83bbc.chunk.js",
+    "static/media/logo.svg": "/mattlieberis/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/mattlieberis/index.html",
+    "main.073c9b0a.css.map": "/mattlieberis/static/css/main.073c9b0a.css.map",
+    "main.7fdf7202.js.map": "/mattlieberis/static/js/main.7fdf7202.js.map",
+    "787.33d83bbc.chunk.js.map": "/mattlieberis/static/js/787.33d83bbc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.7fdf7202.js"
+  ]
+}
