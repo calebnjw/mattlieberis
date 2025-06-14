@@ -1,5 +1,8 @@
 import Logo from "@/components/logo";
+import Link from "next/link";
 import mattlieberData from "@/public/mattlieber.json";
+import { getEpisodeData } from "@/utils/episodeUtils";
+import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ episode: string }>;
@@ -7,10 +10,10 @@ type Props = {
 
 export default async function EpisodePage({ params }: Props) {
   const { episode } = await params;
-  const episodeData = await getEpisode(Number(episode));
+  const episodeData = await getEpisodeData(Number(episode));
 
   if (!episodeData) {
-    return <div>Episode not found</div>;
+    notFound();
   }
 
   return (
@@ -19,9 +22,11 @@ export default async function EpisodePage({ params }: Props) {
       <h1>Matt Lieber {episodeData.mattDescription}</h1>
       <p>
         {episodeData.title} | {episodeData.date} |{" "}
-        <a href="{episodeData.spotifyLink}" className="href">
-          Listen on Spotify
-        </a>
+        {episodeData.spotifyLink === "" ? (
+          "Not on Spotify"
+        ) : (
+          <Link href={episodeData.spotifyLink}>Listen on Spotify</Link>
+        )}
       </p>
       <p>{episodeData.episodeDescription}</p>
     </div>
