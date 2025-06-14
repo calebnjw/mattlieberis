@@ -1,7 +1,9 @@
+import Link from "next/link";
+import { redirect } from "next/navigation";
+
 export default function Home() {
-  return (
-    <div>
-      <h1>Matt Lieber is</h1>
-    </div>
-  );
+  const episodeId: number = Math.floor(Math.random() * 203);
+  const redirectUrl = `/episodes/${episodeId}`;
+
+  redirect(redirectUrl);
 }
