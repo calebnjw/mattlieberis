@@ -1,12 +1,12 @@
-import { getAllEpisodeData } from "@/utils/episodeUtils";
+import { getAllEpisodeData } from "@/lib/utils/episodeUtils";
 import Link from "next/link";
 
-export default function EpisodesPage() {
+export default function AllEpisodesPage() {
   const allEpisodeData = getAllEpisodeData();
 
   return (
     <div className="container mx-auto p-4">
-      <h1>I&#39;m the all episodes page</h1>
+      <h1>I&apos;m the all episodes page</h1>
       <h1 className="text-2xl font-bold mb-4">All Episodes</h1>
       <div className="grid gap-4">
         {allEpisodeData.map((episodeData) => (

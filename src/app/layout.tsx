@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/components/themeProvider";
 import "./globals.css";
-import Logo from "@/components/logo";
+import DefaultMenubar from "@/components/ui/defaultMenubar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>{children}</body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <DefaultMenubar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

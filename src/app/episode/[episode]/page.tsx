@@ -1,7 +1,7 @@
-import Logo from "@/components/logo";
+import Logo from "@/components/static/logo";
 import Link from "next/link";
 import mattlieberData from "@/public/mattlieber.json";
-import { getEpisodeData, EpisodeData } from "@/utils/episodeUtils";
+import { getEpisodeData, EpisodeData } from "@/lib/utils/episodeUtils";
 import { notFound } from "next/navigation";
 
 type Props = {

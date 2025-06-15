@@ -1,5 +1,5 @@
-import { EpisodeData, getRandomEpisodeData } from "@/utils/episodeUtils";
-import Logo from "@/components/logo";
+import { EpisodeData, getRandomEpisodeData } from "@/lib/utils/episodeUtils";
+import Logo from "@/components/static/logo";
 import Link from "next/link";
 
 export default function Home() {
