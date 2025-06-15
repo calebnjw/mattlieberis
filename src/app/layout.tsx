@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/themeProvider";
 import "./globals.css";
 import DefaultMenubar from "@/components/ui/defaultMenubar";
 
@@ -25,17 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <DefaultMenubar />
-          {children}
-        </ThemeProvider>
+        <DefaultMenubar />
+        {children}
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import Logo from "@/components/static/logo";
+import Logo from "@/components/logo";
 import Link from "next/link";
 import mattlieberData from "@/public/mattlieber.json";
 import { getEpisodeData, EpisodeData } from "@/lib/utils/episodeUtils";
