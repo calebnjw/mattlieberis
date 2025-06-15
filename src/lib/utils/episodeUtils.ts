@@ -16,13 +16,13 @@ const NUMBER_OF_EPISODES = mattlieberData.data.length;
  * @returns {number} A random episode number
  */
 export function getRandomEpisodeNumber(): number {
-  const randomNumber = Math.floor(Math.random() * NUMBER_OF_EPISODES);
+  const randomNumber = Math.ceil(Math.random() * NUMBER_OF_EPISODES); // using ceiling to avoid 0, and make it compatible with episodeId from url
   console.log("randomNumber: ", randomNumber);
   return randomNumber;
 }
 
 export function getEpisodeData(episodeNumber: number): EpisodeData {
-  const episodeData = mattlieberData.data[episodeNumber] // no subtract 1 because random number is 0-based
+  const episodeData = mattlieberData.data[episodeNumber - 1] // subtract 1 because random number starts at 1
   console.log("episodeData: ", episodeData);
   return episodeData;
 }
