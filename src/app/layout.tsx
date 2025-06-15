@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Geist, Geist_Mono } from "next/font/google";
 import DefaultMenubar from "@/components/defaultNavbar";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,12 +29,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <div className="container min-h-screen max-w-3xl w-full py-10 mx-auto">
-          <div className="flex flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="container flex flex-col h-screen max-w-3xl px-3 py-10 mx-auto items-start">
             <DefaultMenubar />
             {children}
           </div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );

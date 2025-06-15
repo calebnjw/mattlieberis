@@ -11,8 +11,8 @@ export default function Home() {
   const episodeData: EpisodeData = getRandomEpisodeData();
 
   return (
-    <div className="flex flex-col h-100 content-center items-center">
-      <h1 className="text-6xl text-rose-500 font-extrabold tracking-tight">
+    <div className="grid grid-cols-1 h-full content-end">
+      <h1 className="h-full items-center text-6xl text-rose-500 dark:text-rose-400 font-extrabold tracking-tight">
         Matt Lieber {episodeData.mattDescription}
       </h1>
       <Accordion type="single" collapsible className="w-full">
@@ -26,7 +26,7 @@ export default function Home() {
               {episodeData.spotifyLink === "" ? (
                 ""
               ) : (
-                <Link href={episodeData.spotifyLink} className="text-rose-500">
+                <Link href={episodeData.spotifyLink} className="text-rose-500 dark:text-rose-300">
                   Listen on Spotify
                 </Link>
               )}
