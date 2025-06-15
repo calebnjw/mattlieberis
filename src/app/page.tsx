@@ -1,10 +1,23 @@
-import { getRandomEpisodeNumber } from "@/utils/episodeUtils";
+import { EpisodeData, getRandomEpisodeData } from "@/utils/episodeUtils";
+import Logo from "@/components/logo";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 
 export default function Home() {
-  const episodeId: number = getRandomEpisodeNumber();
-  const redirectUrl = `/episode/${episodeId}`;
+  const episodeData: EpisodeData = getRandomEpisodeData();
 
-  redirect(redirectUrl);
+  return (
+    <div>
+      <Logo />
+      <h1>Matt Lieber {episodeData.mattDescription}</h1>
+      <p>
+        {episodeData.title} | {episodeData.date} |{" "}
+        {episodeData.spotifyLink === "" ? (
+          "Not on Spotify"
+        ) : (
+          <Link href={episodeData.spotifyLink}>Listen on Spotify</Link>
+        )}
+      </p>
+      <p>{episodeData.episodeDescription}</p>
+    </div>
+  );
 }
