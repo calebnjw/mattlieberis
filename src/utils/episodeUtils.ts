@@ -1,6 +1,6 @@
 import mattlieberData from "@/public/mattlieber.json";
 
-type EpisodeData = {
+export type EpisodeData = {
   id: number;
   title: string;
   date: string;

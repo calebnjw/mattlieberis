@@ -1,16 +1,24 @@
 import Logo from "@/components/logo";
 import Link from "next/link";
 import mattlieberData from "@/public/mattlieber.json";
-import { getEpisodeData } from "@/utils/episodeUtils";
+import { getEpisodeData, EpisodeData } from "@/utils/episodeUtils";
 import { notFound } from "next/navigation";
 
 type Props = {
   params: Promise<{ episode: string }>;
 };
 
+// // Return a list of `params` to populate the [slug] dynamic segment
+// export async function generateStaticParams() {
+//   const episodes: EpisodeData[] = getAllEpisodeData();
+//   return episodes.map((episode: EpisodeData) => ({
+//     episode: episode,
+//   }));
+// }
+
 export default async function EpisodePage({ params }: Props) {
   const { episode } = await params;
-  const episodeData = await getEpisodeData(Number(episode));
+  const episodeData: EpisodeData = await getEpisodeData(Number(episode));
 
   if (!episodeData) {
     notFound();
@@ -31,9 +39,4 @@ export default async function EpisodePage({ params }: Props) {
       <p>{episodeData.episodeDescription}</p>
     </div>
   );
-}
-
-async function getEpisode(episodeId: number) {
-  const episodes = mattlieberData.data;
-  return episodes[episodeId - 1]; // Subtract 1 since array is 0-based but episode IDs start at 1
 }

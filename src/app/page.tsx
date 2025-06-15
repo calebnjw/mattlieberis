@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 export default function Home() {
   const episodeId: number = getRandomEpisodeNumber();
-  const redirectUrl = `/episodes/${episodeId}`;
+  const redirectUrl = `/episode/${episodeId}`;
 
   redirect(redirectUrl);
 }

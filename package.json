@@ -1,10 +1,13 @@
 {
   "name": "mattlieber",
+  "homepage": "https://calebnjw.github.io/mattlieberis/",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -21,6 +24,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.3.3",
     "eslint-config-prettier": "^10.1.5",
+    "gh-pages": "^6.3.0",
     "typescript": "^5"
   }
 }
