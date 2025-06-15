@@ -12,7 +12,7 @@ export default function AllEpisodesPage() {
             <div className="text-sm text-gray-500 mb-2">
               {episodeData.date} |{" "}
               {episodeData.spotifyLink === "" ? (
-                <div>"Not on Spotify"</div>
+                <div>Not on Spotify</div>
               ) : (
                 <Link
                   href={episodeData.spotifyLink}
