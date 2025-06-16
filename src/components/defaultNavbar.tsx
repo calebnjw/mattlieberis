@@ -12,7 +12,7 @@ import { ThemeToggle } from "@/components/themeToggle";
 
 export default function DefaultNavbar() {
   return (
-    <div className="flex flex-row justify-between border border-neutral-200 dark:border-neutral-900 rounded-full bg-white dark:bg-black w-full px-1">
+    <div className="w-full max-w-3xl absolute flex flex-row justify-between border border-neutral-200 dark:border-neutral-900 rounded-full bg-white dark:bg-black">
       <div className="flex">
         <Link href="/">
           <MenubarLogo />
