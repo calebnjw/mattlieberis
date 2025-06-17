@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
-const isProd = process.env.NODE_ENV === "production";
-console.log("IS PROD: ", isProd);
+// const isProd = process.env.NODE_ENV === "production";
+const isProd = true;
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -13,4 +13,5 @@ const nextConfig: NextConfig = {
   },
 };
 
+console.log("NEXT CONFIG: ", nextConfig);
 export default nextConfig;

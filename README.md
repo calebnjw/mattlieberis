@@ -6,31 +6,26 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Todos
 
-## Learn More
+1. Current problem: Page is static. random number is generated once at build, and served to github pages:
 
-To learn more about Next.js, take a look at the following resources:
+- Necessary Change 1: rewrite page to use useEffect to generate random number on each load.
+- Possible Option 1: store .json in local storage, and read from there.
+- Possible Option 2: create static pages of every single quote using generateStaticParams (which enables page linking from the all page).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Need to put the quote in the middle of the page.
+3. Make the accordion with description expand upwards.
+4. Make the about page one big accordion??? is that even good UX?
+5. Add the (scramble in)[https://www.fancycomponents.dev/docs/components/text/scramble-in] effect for the quote.
+6. Add a github link in nav bar.
+7. Do up the about page!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- About the podcast.
+- About why I created this project! Why though?
