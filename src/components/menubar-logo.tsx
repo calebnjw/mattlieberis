@@ -1,13 +1,13 @@
 "use client";
 
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {basePath} from "../../next.config";
 
 const config = require("../../next.config.ts");
 console.log("CONFIG >>> ");
 console.log(config);
 console.log("BASEPATH: " + config.basePath);
-const avatarPath =
-  config.basePath == undefined ? "/replyall.jpg" : config.basePath + "/replyall.jpg";
+const avatarPath =  basePath + "/replyall.jpg";
 console.log("AVATAR LOCATION: " + avatarPath);
 
 export default function MenubarLogo() {
