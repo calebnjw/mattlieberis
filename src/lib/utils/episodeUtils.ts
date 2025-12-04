@@ -23,6 +23,9 @@ export function getRandomEpisodeNumber(): number {
 
 /**
  * Returns episode data for the given episode number
+ * Do not subtract 1 from the episode number you are passing.
+ * Function assumes episode numbers start at 1, so it will already subtract 1 to get the correct index in the array.
+ *
  * @param episodeNumber - The episode number to get the data for
  * @returns {EpisodeData} The episode data
  */
@@ -34,6 +37,8 @@ export function getEpisodeData(episodeNumber: number): EpisodeData {
 
 /**
  * Returns random episode data
+ * Not sure if it's very useful since we could just get a random episode number and pass it into the getEpisodeData function
+ * 
  * @returns {EpisodeData} Random episode data
  */
 export function getRandomEpisodeData(): EpisodeData {

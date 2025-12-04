@@ -7,8 +7,8 @@ import {
 
 import Link from "next/link";
 
-import MenubarLogo from "@/components/menubarLogo";
-import { ThemeToggle } from "@/components/themeToggle";
+import MenubarLogo from "@/components/menubar-logo";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function DefaultNavbar() {
   return (

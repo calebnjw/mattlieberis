@@ -1,4 +1,4 @@
-import { getAllEpisodeData } from "@/lib/utils/episodeUtils";
+import {getAllEpisodeData} from "@/lib/utils/episodeUtils";
 import Link from "next/link";
 
 export default function AllEpisodesPage() {

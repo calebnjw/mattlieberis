@@ -1,4 +1,4 @@
-import { EpisodeData, getRandomEpisodeData } from "@/lib/utils/episodeUtils";
+import {EpisodeData, getEpisodeData} from "@/lib/utils/episodeUtils";
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +8,7 @@ import {
 import Link from "next/link";
 
 export default function Home() {
-  const episodeData: EpisodeData = getRandomEpisodeData();
+  var episodeData: EpisodeData = getEpisodeData(1);
 
   return (
     <div className="grid grid-cols-1 h-full content-end">
