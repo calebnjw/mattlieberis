@@ -3,7 +3,8 @@
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
 const config = require("../../next.config.ts");
-console.log("CONFIG: " + config);
+console.log("CONFIG >>> ");
+console.log(config);
 console.log("BASEPATH: " + config.basePath);
 const avatarPath =
   config.basePath == undefined ? "/replyall.jpg" : config.basePath + "/replyall.jpg";
