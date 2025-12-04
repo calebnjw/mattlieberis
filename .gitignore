@@ -43,3 +43,6 @@ next-env.d.ts
 
 # macos
 .DS_Store
+
+# intellij idea
+.idea
