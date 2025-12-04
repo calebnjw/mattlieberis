@@ -19,7 +19,7 @@ export default function DefaultNavbar() {
         </Link>
         <NavigationMenu viewport={false} className="gap-x-1">
           <NavigationMenuItem className="list-none">
-            <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+            <NavigationMenuLink asChild className={navigationMenuTriggerStyle() }>
               <Link href="/all">All Episodes</Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
