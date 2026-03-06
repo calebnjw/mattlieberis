@@ -6,7 +6,7 @@ let mattlieberData = null;
  */
 export async function loadEpisodeData() {
   if (mattlieberData) return;
-  const response = await fetch('../mattlieberis/public/mattlieber.json');
+  const response = await fetch('../../public/mattlieber.json');
   mattlieberData = await response.json();
 }
 
