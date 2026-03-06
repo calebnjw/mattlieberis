@@ -1,28 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+> [!note]
+> This app has been reduced to a simple html and javascript website. Nothing crazy here, hoping this will make this project easier to build. 
+
+mattlieber.is is a compilation of all descriptions of Matt Lieber from the end credits of the Reply All podcast by Gimlet Media. Reply All ran from 24 November 2014 till 23 June 2022. 
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open the index.html file as a live preview in vscode to see your changes reflected in real time. 
 
 ## Todos
 
-1. Current problem: Page is static. random number is generated once at build, and served to github pages:
+1. ~~Current problem: Page is static. random number is generated once at build, and served to github pages:~~
 
-   1. Necessary Change 1: rewrite page to use useEffect to generate random number on each load.
-   2. Possible Option 1: store .json in local storage, and read from there.
-   3. Possible Option 2: create static pages of every single quote using generateStaticParams (which enables page linking from the all page).
+   1. ~~Necessary Change 1: rewrite page to use useEffect to generate random number on each load.~~
+   2. ~~Possible Option 1: store .json in local storage, and read from there.~~
+   3. ~~Possible Option 2: create static pages of every single quote using generateStaticParams (which enables page linking from the all page).~~
 
-2. Another problem: IMAGES ARE NOT BEING REFERENCED CORRECTLY.
+2. ~~Another problem: IMAGES ARE NOT BEING REFERENCED CORRECTLY.~~
 
-   1. I need to figure out how to configure the basePath correctly. it's trying to fetch from /replyall.jpg rather than /mattlieberis/replyall.jpg despite "isProd" returning "true".
+   1. ~~I need to figure out how to configure the basePath correctly. it's trying to fetch from /replyall.jpg rather than /mattlieberis/replyall.jpg despite "isProd" returning "true".~~
 
 3. Need to put the quote in the middle of the page.
 4. Make the accordion with description expand upwards.

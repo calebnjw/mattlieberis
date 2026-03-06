@@ -1,0 +1,95 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: justify;
+    margin: auto;
+    margin-top: 3em;
+    width: 70%;
+    max-width: 60em;
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    /* background-color: #171414;
+    color: #e5e0df; */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 98%;
+    max-width: 58em;
+    margin: auto;
+    padding: 0.5em;
+    background-color: white;
+    border: #ff637e 1px solid;
+    border-radius: 3em;
+    box-sizing: border-box;
+}
+
+.navbar-icon {
+    display: block;
+    margin-right: 1.2em;
+    width: 2em;
+    height: 2em;
+    border-radius: 3em;
+    background-image: url('../../public/replyall-small.jpg');
+    background-size: cover;
+}
+
+.navbar-link {
+    display: inline-block;
+    margin-right: 1em;
+    color: #171414;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.d-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.color-primary {
+    color: #ff637e;
+}
+
+.text-super {
+    font-size: 5em;
+    line-height: 0.8em;
+}
+
+.geist-300 {
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.geist-600 {
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.geist-900 {
+    font-family: "Geist", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+}
