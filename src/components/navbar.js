@@ -10,7 +10,7 @@ export class Navbar {
 
         // Create left side with logo
         const homeIcon = document.createElement('a');
-        homeIcon.href = '/';
+        homeIcon.href = 'index';
         homeIcon.className = 'navbar-icon';
         navbar.appendChild(homeIcon);
 
