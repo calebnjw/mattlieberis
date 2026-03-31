@@ -1,5 +1,5 @@
 import { Navbar } from '../components/navbar.js';
-import { loadEpisodeData, getAllEpisodeData, createEpisodeElement } from '../utils/episodeUtils.js';
+import { loadEpisodeData, getAllEpisodeData, createEpisodeContainer } from '../utils/episodeUtils.js';
 
 async function initAllEpisodes() {
   // Load navbar
@@ -25,7 +25,7 @@ async function initAllEpisodes() {
       window.open(`${episodeData.spotifyLink}`, '_blank').focus();
     }
 
-    episodeContainer.appendChild(createEpisodeElement(episodeData));
+    episodeContainer.appendChild(createEpisodeContainer(episodeData));
 
     app.appendChild(episodeContainer);
   });

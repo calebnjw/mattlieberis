@@ -1,5 +1,5 @@
 import { Navbar } from '../components/navbar.js';
-import { loadEpisodeData, getRandomEpisodeData, createEpisodeElement } from '../utils/episodeUtils.js';
+import { loadEpisodeData, getRandomEpisodeData, createEpisodeContainer } from '../utils/episodeUtils.js';
 
 async function initHome() {
   // Load navbar
@@ -21,7 +21,7 @@ async function initHome() {
   mattLieberIs.textContent = `Matt Lieber ${episodeData.mattDescription}`;
   app.appendChild(mattLieberIs);
 
-  app.appendChild(createEpisodeElement(episodeData));
+  app.appendChild(createEpisodeContainer(episodeData));
 }
 
 // Initialize when DOM is ready

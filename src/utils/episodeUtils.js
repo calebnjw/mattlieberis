@@ -62,7 +62,7 @@ export function getAllEpisodeData() {
  * @param {Object} episodeData - The episode data to create the elements for
  * @returns {HTMLElement} - The container element with episode details
 */
-export function createEpisodeElement(episodeData) {
+export function createEpisodeContainer(episodeData) {
   // Create espisode details container
   const episodeContainer = document.createElement('div');
   episodeContainer.className = 'd-flex-column';
