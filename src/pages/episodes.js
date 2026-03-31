@@ -1,5 +1,5 @@
 import { Navbar } from '../components/navbar.js';
-import { loadEpisodeData, getAllEpisodeData } from '../utils/episodeUtils.js';
+import { loadEpisodeData, getAllEpisodeData, createEpisodeElement } from '../utils/episodeUtils.js';
 
 async function initAllEpisodes() {
   // Load navbar
@@ -16,43 +16,22 @@ async function initAllEpisodes() {
   if (!app) return;
 
   // Create episodes grid
-  const grid = document.createElement('div');
-  grid.className = '';
+  const episodeList = document.createElement('div');
+  episodeList.className = 'd-flex-column';
 
-  allEpisodes.forEach((episode) => {
-    const card = document.createElement('div');
-    card.className = '';
-
-    const cardTitle = document.createElement('h2');
-    cardTitle.className = '';
-    cardTitle.textContent = episode.title;
-    card.appendChild(cardTitle);
-
-    const date = document.createElement('div');
-    date.className = '';
-
-    if (episode.spotifyLink) {
-      date.innerHTML = `
-        ${episode.date} |
-        <a href="${episode.spotifyLink}" class="">
-          Listen on Spotify
-        </a>
-      `;
-    } else {
-      date.textContent = `${episode.date} | Not on Spotify`;
+  allEpisodes.forEach((episodeData) => {
+    const episodeContainer = document.createElement('div');
+    episodeContainer.className = 'card mb-1';
+    episodeContainer.onclick = () => {
+      window.open(`${episodeData.spotifyLink}`, '_blank').focus();
     }
 
-    card.appendChild(date);
+    episodeContainer.appendChild(createEpisodeElement(episodeData));
 
-    const description = document.createElement('p');
-    description.className = '';
-    description.textContent = episode.episodeDescription;
-    card.appendChild(description);
-
-    grid.appendChild(card);
+    episodeList.appendChild(episodeContainer);
   });
 
-  app.appendChild(grid);
+  app.appendChild(episodeList);
 }
 
 // Initialize when DOM is ready

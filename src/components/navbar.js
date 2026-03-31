@@ -10,7 +10,7 @@ export class Navbar {
 
         // Create left side with logo
         const homeIcon = document.createElement('a');
-        homeIcon.href = 'index';
+        homeIcon.href = 'index.html';
         homeIcon.className = 'navbar-icon';
         navbar.appendChild(homeIcon);
 
@@ -18,14 +18,14 @@ export class Navbar {
         const navLinks = document.createElement('div');
 
         const episodesLink = document.createElement('a');
-        episodesLink.href = 'episodes';
-        episodesLink.className = 'navbar-link geist-600 color-primary';
+        episodesLink.href = 'episodes.html';
+        episodesLink.className = 'navbar-link geist-600 color-white';
         episodesLink.textContent = 'Episodes';
         navLinks.appendChild(episodesLink);
 
         const aboutLink = document.createElement('a');
-        aboutLink.href = 'about';
-        aboutLink.className = 'navbar-link geist-600 color-primary';
+        aboutLink.href = 'about.html';
+        aboutLink.className = 'navbar-link geist-600 color-white';
         aboutLink.textContent = 'About';
         navLinks.appendChild(aboutLink);
 

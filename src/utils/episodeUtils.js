@@ -57,3 +57,49 @@ export function getAllEpisodeData() {
   return mattlieberData.data;
 }
 
+/** 
+ * Takes episode data and returns HTML elements with episode details
+ * @param {Object} episodeData - The episode data to create the elements for
+ * @returns {HTMLElement} - The container element with episode details
+*/
+export function createEpisodeElement(episodeData) {
+  console.log("Creating episode element for: ", episodeData);
+  // Create espisode details container
+  const episodeContainer = document.createElement('div');
+  episodeContainer.className = 'd-flex-column';
+  episodeContainer.id = 'episode-container';
+  app.appendChild(episodeContainer);
+
+  // Container to hold episode title, date and link in the same line. 
+  const episodeInfoHeader = document.createElement('div');
+  episodeInfoHeader.className = 'd-flex-column mb-1';
+  episodeContainer.appendChild(episodeInfoHeader);
+
+  const episodeTitle = document.createElement('div');
+  episodeTitle.className = 'text-title geist-600 color-primary mb-05';
+  episodeTitle.textContent = episodeData.title;
+  episodeInfoHeader.appendChild(episodeTitle);
+
+  const episodeInfo = document.createElement('div');
+  episodeInfo.className = 'geist-600 mb-05';
+  if (episodeData.spotifyLink) {
+    episodeInfo.innerHTML = `
+      ${episodeData.date} | 
+      <a href="${episodeData.spotifyLink}" target="_blank" rel="noopener noreferrer" class="color-black">
+        Listen on Spotify
+      </a>
+    `;
+  } else {
+    episodeInfo.innerHTML = `
+      ${episodeData.date} | Not on Spotify
+    `;
+  }
+  episodeInfoHeader.appendChild(episodeInfo);
+
+  const episodeDescription = document.createElement('div');
+  episodeDescription.className = 'geist-400';
+  episodeDescription.textContent = episodeData.episodeDescription;
+  episodeContainer.appendChild(episodeDescription);
+
+  return episodeContainer;
+}
