@@ -2,9 +2,6 @@ import { Navbar } from '../components/navbar.js';
 import { loadEpisodeData, getRandomEpisodeData, createEpisodeContainer } from '../utils/episodeUtils.js';
 
 async function initHome() {
-  // Load navbar
-  new Navbar('navbar');
-
   // Load episode data
   await loadEpisodeData();
 
@@ -15,13 +12,24 @@ async function initHome() {
   const app = document.getElementById('app');
   if (!app) return;
 
-  // Create title
-  const mattLieberIs = document.createElement('h1');
-  mattLieberIs.className = 'text-super geist-900 color-primary mb-1';
-  mattLieberIs.textContent = `Matt Lieber ${episodeData.mattDescription}`;
-  app.appendChild(mattLieberIs);
+  // Load navbar
+  new Navbar('app');
 
-  app.appendChild(createEpisodeContainer(episodeData));
+  // Create main quote container
+  const quoteContainer = document.createElement('div');
+  quoteContainer.id = 'quote-container';
+  app.appendChild(quoteContainer);
+
+  // Create quote text inside main
+  const mattLieberIs = document.createElement('h1');
+  mattLieberIs.id = 'quote-text';
+  mattLieberIs.textContent = `Matt Lieber ${episodeData.mattDescription}`;
+  quoteContainer.appendChild(mattLieberIs);
+
+  // Create episode details container (fixed at bottom)
+  const episodeDetails = createEpisodeContainer(episodeData);
+  episodeDetails.id = 'episode-details';
+  app.appendChild(episodeDetails);
 }
 
 // Initialize when DOM is ready

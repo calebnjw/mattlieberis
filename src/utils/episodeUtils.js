@@ -20,7 +20,7 @@ export function getRandomEpisodeNumber() {
   }
   const randomNumber = Math.ceil(Math.random() * mattlieberData.data.length);
   console.log("randomNumber: ", randomNumber);
-  return randomNumber;
+  return 73; // For testing, return a fixed episode number. Change to randomNumber for production.
 }
 
 /**
@@ -63,11 +63,9 @@ export function getAllEpisodeData() {
  * @returns {HTMLElement} - The container element with episode details
 */
 export function createEpisodeContainer(episodeData) {
-  // Create espisode details container
+  // Create episode details container
   const episodeContainer = document.createElement('div');
-  episodeContainer.className = 'd-flex-column';
-  episodeContainer.id = 'episode-container';
-  app.appendChild(episodeContainer);
+  episodeContainer.className = 'd-flex-column episode-container';
 
   // Container to hold episode title, date and link in the same line. 
   const episodeInfoHeader = document.createElement('div');
@@ -80,23 +78,21 @@ export function createEpisodeContainer(episodeData) {
   episodeInfoHeader.appendChild(episodeTitle);
 
   const episodeInfo = document.createElement('div');
-  episodeInfo.className = 'geist-600 mb-05';
+  episodeInfo.className = 'geist-600 color-secondary mb-05';
   if (episodeData.spotifyLink) {
     episodeInfo.innerHTML = `
       ${episodeData.date} | 
-      <a href="${episodeData.spotifyLink}" target="_blank" rel="noopener noreferrer" class="color-black">
+      <a href="${episodeData.spotifyLink}" target="_blank" rel="noopener noreferrer" class="color-primary" style="text-decoration: none;">
         Listen on Spotify
       </a>
     `;
   } else {
-    episodeInfo.innerHTML = `
-      ${episodeData.date} | Not on Spotify
-    `;
+    episodeInfo.innerHTML = `${episodeData.date}`;
   }
   episodeInfoHeader.appendChild(episodeInfo);
 
   const episodeDescription = document.createElement('div');
-  episodeDescription.className = 'geist-400';
+  episodeDescription.className = 'geist-400 color-secondary';
   episodeDescription.textContent = episodeData.episodeDescription;
   episodeContainer.appendChild(episodeDescription);
 

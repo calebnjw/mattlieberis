@@ -1,12 +1,12 @@
 import { Navbar } from '../components/navbar.js';
 
 function initAbout() {
-  // Load navbar
-  new Navbar('navbar');
-
   // Create app content
   const app = document.getElementById('app');
   if (!app) return;
+
+  // Load navbar
+  new Navbar('app');
 
   // Add your about content here
   const aboutContent = document.createElement('div');

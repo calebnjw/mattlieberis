@@ -2,9 +2,6 @@ import { Navbar } from '../components/navbar.js';
 import { loadEpisodeData, getAllEpisodeData, createEpisodeContainer } from '../utils/episodeUtils.js';
 
 async function initAllEpisodes() {
-  // Load navbar
-  new Navbar('navbar');
-
   // Load episode data
   await loadEpisodeData();
 
@@ -15,17 +12,20 @@ async function initAllEpisodes() {
   const app = document.getElementById('app');
   if (!app) return;
 
+  // Load navbar
+  new Navbar('app');
+
   // Create episodes grid
   app.className = 'd-flex-column';
 
   allEpisodes.forEach((episodeData) => {
-    const episodeContainer = document.createElement('div');
-    episodeContainer.className = 'card mb-1';
+    const episodeContainer = createEpisodeContainer(episodeData);
+    episodeContainer.style.cursor = 'pointer';
     episodeContainer.onclick = () => {
-      window.open(`${episodeData.spotifyLink}`, '_blank').focus();
-    }
-
-    episodeContainer.appendChild(createEpisodeContainer(episodeData));
+      if (episodeData.spotifyLink) {
+        window.open(episodeData.spotifyLink, '_blank').focus();
+      }
+    };
 
     app.appendChild(episodeContainer);
   });
