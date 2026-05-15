@@ -16,7 +16,9 @@ async function initAllEpisodes() {
   new Navbar('app');
 
   // Create episodes grid
-  app.className = 'd-flex-column';
+  const episodeListContainer = document.createElement('div');
+  episodeListContainer.id = 'episode-list-container';
+  episodeListContainer.className = 'd-flex-column pb-3';
 
   allEpisodes.forEach((episodeData) => {
     const episodeContainer = createEpisodeContainer(episodeData);
@@ -27,8 +29,10 @@ async function initAllEpisodes() {
       }
     };
 
-    app.appendChild(episodeContainer);
+    episodeListContainer.appendChild(episodeContainer);
   });
+
+  app.appendChild(episodeListContainer);
 }
 
 // Initialize when DOM is ready

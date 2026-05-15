@@ -19,13 +19,13 @@ export class Navbar {
 
         const episodesLink = document.createElement('a');
         episodesLink.href = 'episodes.html';
-        episodesLink.className = 'navbar-link color-white';
+        episodesLink.classList = 'navbar-link geist-600';
         episodesLink.textContent = 'Episodes';
         navLinks.appendChild(episodesLink);
 
         const aboutLink = document.createElement('a');
         aboutLink.href = 'about.html';
-        aboutLink.className = 'navbar-link color-white';
+        aboutLink.classList = 'navbar-link geist-600';
         aboutLink.textContent = 'About';
         navLinks.appendChild(aboutLink);
 

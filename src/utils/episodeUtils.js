@@ -65,23 +65,23 @@ export function getAllEpisodeData() {
 export function createEpisodeContainer(episodeData) {
   // Create episode details container
   const episodeContainer = document.createElement('div');
-  episodeContainer.className = 'd-flex-column episode-container';
+  episodeContainer.className = 'd-flex-column episode-container mb-1';
 
   // Container to hold episode title, date and link in the same line. 
   const episodeInfoHeader = document.createElement('div');
-  episodeInfoHeader.className = 'd-flex-column mb-1';
+  episodeInfoHeader.className = 'd-flex-row mb-05 d-justify-between d-align-bottom';
   episodeContainer.appendChild(episodeInfoHeader);
 
   const episodeTitle = document.createElement('div');
-  episodeTitle.className = 'text-title geist-600 color-primary mb-05';
+  episodeTitle.className = 'text-title geist-600 color-primary';
   episodeTitle.textContent = episodeData.title;
   episodeInfoHeader.appendChild(episodeTitle);
 
   const episodeInfo = document.createElement('div');
-  episodeInfo.className = 'geist-600 color-secondary mb-05';
+  episodeInfo.className = 'geist-600 color-black mb-05';
   if (episodeData.spotifyLink) {
     episodeInfo.innerHTML = `
-      ${episodeData.date} | 
+      ${episodeData.date} |
       <a href="${episodeData.spotifyLink}" target="_blank" rel="noopener noreferrer" class="color-primary" style="text-decoration: none;">
         Listen on Spotify
       </a>
@@ -92,7 +92,7 @@ export function createEpisodeContainer(episodeData) {
   episodeInfoHeader.appendChild(episodeInfo);
 
   const episodeDescription = document.createElement('div');
-  episodeDescription.className = 'geist-400 color-secondary';
+  episodeDescription.className = 'geist-400 color-black';
   episodeDescription.textContent = episodeData.episodeDescription;
   episodeContainer.appendChild(episodeDescription);
 

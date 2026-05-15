@@ -19,11 +19,13 @@ Open the index.html file as a live preview in vscode to see your changes reflect
 
    1. ~~I need to figure out how to configure the basePath correctly. it's trying to fetch from /replyall.jpg rather than /mattlieberis/replyall.jpg despite "isProd" returning "true".~~
 
-3. Need to put the quote in the middle of the page.
-4. Make the accordion with description expand upwards.
-5. Make the about page one big accordion??? is that even good UX?
+3. ~~Need to put the quote in the middle of the page.~~
+4. ~~Make the accordion with description expand upwards.~~
+5. ~~Make the about page one big accordion??? is that even good UX?~~
 6. Add the (scramble in)[https://www.fancycomponents.dev/docs/components/text/scramble-in] effect for the quote.
 7. Add a github link in nav bar.
 8. Do up the about page!
    1. About the podcast.
    2. About why I created this project! Why though?
+9. fix the non-scrolling episodes list page. 
+10. make the bottom margin on the under the episodes details on the home page equal to top margin above navbar. 

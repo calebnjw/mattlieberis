@@ -21,14 +21,16 @@ async function initHome() {
   app.appendChild(quoteContainer);
 
   // Create quote text inside main
-  const mattLieberIs = document.createElement('h1');
-  mattLieberIs.id = 'quote-text';
-  mattLieberIs.textContent = `Matt Lieber ${episodeData.mattDescription}`;
-  quoteContainer.appendChild(mattLieberIs);
+  const quoteText = document.createElement('h1');
+  quoteText.id = 'quote-text';
+  quoteText.class = 'geist-900';
+  quoteText.textContent = `Matt Lieber ${episodeData.mattDescription}`;
+  quoteContainer.appendChild(quoteText);
 
   // Create episode details container (fixed at bottom)
   const episodeDetails = createEpisodeContainer(episodeData);
   episodeDetails.id = 'episode-details';
+  episodeDetails.class = 'episode-container';
   app.appendChild(episodeDetails);
 }
 
