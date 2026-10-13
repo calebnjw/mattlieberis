@@ -12,7 +12,7 @@ export function createGitHubLink() {
   button.innerHTML = dark ? '<img src="public/github_invertocat_black.svg" alt="GitHub"/>' : '<img src="public/github_invertocat_black.svg" alt="GitHub"/>'
 
   button.addEventListener('click', () => {
-    navigate("https://github.com/calebnjw/mattlieberis")
+    window.location.href = "https://github.com/calebnjw/mattlieberis";
   });
 
   return button;
