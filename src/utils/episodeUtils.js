@@ -76,13 +76,14 @@ export function createEpisodeContainer(episodeData) {
 
   const episodeTitle = document.createElement('div');
   episodeTitle.className = 'text-title geist-600 color-primary mb-05';
-  episodeTitle.textContent = episodeData.title;
+  episodeTitle.textContent = "Matt Lieber " + episodeData.mattDescription;
   episodeInfoHeader.appendChild(episodeTitle);
 
   const episodeInfo = document.createElement('div');
   episodeInfo.className = 'geist-600 mb-05';
   if (episodeData.spotifyLink) {
     episodeInfo.innerHTML = `
+      ${episodeData.title} | 
       ${episodeData.date} | 
       <a href="${episodeData.spotifyLink}" target="_blank" rel="noopener noreferrer" class="color-black">
         Listen on Spotify

@@ -1,3 +1,5 @@
+import { createThemeToggle } from './theme.js';
+
 export class Navbar {
     async initNavbar(containerId) {
         // Create navbar content
@@ -12,24 +14,27 @@ export class Navbar {
         const homeIcon = document.createElement('a');
         homeIcon.href = 'index.html';
         homeIcon.className = 'navbar-icon';
+        homeIcon.setAttribute('aria-label', 'Home');
         navbar.appendChild(homeIcon);
 
         // Create right side with navigation links
         const navLinks = document.createElement('div');
+        navLinks.className = 'navbar-links';
 
         const episodesLink = document.createElement('a');
         episodesLink.href = 'episodes.html';
-        episodesLink.className = 'navbar-link color-white';
+        episodesLink.className = 'navbar-link';
         episodesLink.textContent = 'Episodes';
         navLinks.appendChild(episodesLink);
 
         const aboutLink = document.createElement('a');
         aboutLink.href = 'about.html';
-        aboutLink.className = 'navbar-link color-white';
+        aboutLink.className = 'navbar-link';
         aboutLink.textContent = 'About';
         navLinks.appendChild(aboutLink);
 
         navbar.appendChild(navLinks);
+        navbar.appendChild(createThemeToggle());
     }
 
     // constructor Navbar class for use in other pages
