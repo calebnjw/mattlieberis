@@ -1,3 +1,4 @@
+import { createGitHubLink } from './github.js';
 import { createThemeToggle } from './theme.js';
 
 export class Navbar {
@@ -34,7 +35,13 @@ export class Navbar {
         navLinks.appendChild(aboutLink);
 
         navbar.appendChild(navLinks);
-        navbar.appendChild(createThemeToggle());
+
+
+        const navActions = document.createElement('div');
+        navActions.className = 'navbar-actions';
+        navActions.appendChild(createGitHubLink());
+        navActions.appendChild(createThemeToggle());
+        navbar.appendChild(navActions);
     }
 
     // constructor Navbar class for use in other pages

@@ -1,5 +1,5 @@
 > [!note]
-> This app has been reduced to a simple html and javascript website. Nothing crazy here, hoping this will make this project easier to build. 
+> This website has been reduced to a simple html and javascript website. Nothing crazy here, hoping this will make this project easier to build. 
 
 mattlieber.is is a compilation of all descriptions of Matt Lieber from the end credits of the Reply All podcast by Gimlet Media. Reply All ran from 24 November 2014 till 23 June 2022. 
 
@@ -21,8 +21,8 @@ Open the index.html file as a live preview in vscode to see your changes reflect
 
 3. Need to put the quote in the middle of the page.
 4. Make the accordion with description expand upwards.
-5. Make the about page one big accordion??? is that even good UX?
-6. Add the (scramble in)[https://www.fancycomponents.dev/docs/components/text/scramble-in] effect for the quote.
+5. ~~Make the about page one big accordion??? is that even good UX?~~
+6. ~~Add the (scramble in)[https://www.fancycomponents.dev/docs/components/text/scramble-in] effect for the quote.~~ (irrelevant because I'm not using react anymore. could be done in plain JS though.)
 7. Add a github link in nav bar.
 8. Do up the about page!
    1. About the podcast.
