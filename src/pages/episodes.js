@@ -16,11 +16,11 @@ async function initAllEpisodes() {
   if (!app) return;
 
   // Create episodes grid
-  app.className = 'd-flex-column';
+  app.className = 'episodes-list';
 
   allEpisodes.forEach((episodeData) => {
     const episodeContainer = document.createElement('div');
-    episodeContainer.className = 'card mb-1';
+    episodeContainer.className = 'episode-card';
     episodeContainer.onclick = () => {
       window.open(`${episodeData.spotifyLink}`, '_blank').focus();
     }

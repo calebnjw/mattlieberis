@@ -10,7 +10,6 @@ function initAbout() {
 
   // Add your about content here
   const aboutContent = document.createElement('div');
-  aboutContent.className = '';
   aboutContent.textContent = 'This is the about page. Add your content here!';
   app.appendChild(aboutContent);
 }

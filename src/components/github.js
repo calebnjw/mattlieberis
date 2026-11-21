@@ -1,15 +1,10 @@
-const storageKey = 'mattlieber-theme';
-
 export function createGitHubLink() {
   const button = document.createElement('button');
   button.type = 'button';
-  button.className = 'theme-toggle';
-
-  let savedTheme = localStorage.getItem('storageKey');
-  const dark = savedTheme === 'dark';
+  button.className = 'navbar-action';
 
   button.title = 'View project on GitHub';
-  button.innerHTML = dark ? '<img src="public/github_invertocat_black.svg" alt="GitHub"/>' : '<img src="public/github_invertocat_black.svg" alt="GitHub"/>'
+  button.innerHTML = '<img src="public/icons/github_invertocat_black.svg" alt="GitHub"/>';
 
   button.addEventListener('click', () => {
     window.location.href = "https://github.com/calebnjw/mattlieberis";

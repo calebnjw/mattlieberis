@@ -6,6 +6,7 @@ export class Navbar {
         // Create navbar content
         const navbarContainer = document.getElementById(containerId);
         if (!navbarContainer) return;
+        navbarContainer.classList.add('navbar-container');
 
         const navbar = document.createElement('div');
         navbar.className = 'navbar';
