@@ -4,7 +4,7 @@
   "screens": [
     {
       "id": "f678cd906b1141aa817c2101d4813251",
-      "title": "About & Lore - Matt Lieber Is",
+      "title": "About - Matt Lieber is",
       "html": "about.html",
       "screenshot": "about.jpg",
       "imageMetadata": {
