@@ -14,7 +14,7 @@ export class Navbar {
 
         // Create left side with logo
         const homeIcon = document.createElement('a');
-        homeIcon.href = 'index.html';
+        homeIcon.href = 'index';
         homeIcon.className = 'navbar-icon';
         homeIcon.setAttribute('aria-label', 'Home');
         navbar.appendChild(homeIcon);
@@ -24,13 +24,13 @@ export class Navbar {
         navLinks.className = 'navbar-links';
 
         const episodesLink = document.createElement('a');
-        episodesLink.href = 'episodes.html';
+        episodesLink.href = 'episodes';
         episodesLink.className = 'navbar-link';
         episodesLink.textContent = 'Episodes';
         navLinks.appendChild(episodesLink);
 
         const aboutLink = document.createElement('a');
-        aboutLink.href = 'about.html';
+        aboutLink.href = 'about';
         aboutLink.className = 'navbar-link';
         aboutLink.textContent = 'About';
         navLinks.appendChild(aboutLink);
