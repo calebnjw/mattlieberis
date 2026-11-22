@@ -67,36 +67,76 @@ export function createEpisodeContainer(episodeData) {
   const episodeContainer = document.createElement('div');
   episodeContainer.className = 'episode-details';
 
-  // Container to hold episode title, date and link in the same line. 
+  const quote = document.createElement('blockquote');
+  quote.className = 'episode-quote';
+  const quoteText = `Matt Lieber ${episodeData.mattDescription.trim()}`;
+  const hasQuote = episodeData.mattDescription.trim() !== 'is not described.';
+  quote.textContent = hasQuote ? `“${quoteText}”` : 'No Matt Lieber description in this episode.';
+  quote.classList.toggle('episode-quote-missing', !hasQuote);
+  episodeContainer.appendChild(quote);
+
+  // Keep episode context above the quote, as in the archive reference.
   const episodeInfoHeader = document.createElement('div');
   episodeInfoHeader.className = 'episode-details-header';
   episodeContainer.appendChild(episodeInfoHeader);
 
-  const episodeTitle = document.createElement('div');
-  episodeTitle.className = 'episode-quote';
-  episodeTitle.textContent = "Matt Lieber " + episodeData.mattDescription;
+  const episodeTitle = document.createElement('h2');
+  episodeTitle.className = 'episode-title';
+  const titleParts = episodeData.title.match(/^(#\d+)\s+(.+)$/);
+  if (titleParts) {
+    const badge = document.createElement('span');
+    badge.className = 'episode-number';
+    badge.textContent = titleParts[1];
+    episodeTitle.appendChild(badge);
+  }
+  const titleText = document.createElement('span');
+  titleText.textContent = titleParts ? titleParts[2] : episodeData.title;
+  episodeTitle.appendChild(titleText);
   episodeInfoHeader.appendChild(episodeTitle);
 
-  const episodeInfo = document.createElement('div');
-  episodeInfo.className = 'episode-meta';
-  if (episodeData.spotifyLink) {
-    episodeInfo.innerHTML = `
-      ${episodeData.title} | 
-      ${episodeData.date} | 
-      <a href="${episodeData.spotifyLink}" target="_blank" rel="noopener noreferrer" class="episode-link">
-        Listen on Spotify
-      </a>
-    `;
-  } else {
-    episodeInfo.innerHTML = `
-      ${episodeData.date} | Not on Spotify
-    `;
+  const actions = document.createElement('div');
+  actions.className = 'episode-actions';
+  if (hasQuote) {
+    const status = document.createElement('span');
+    status.className = 'episode-copy-status';
+    status.setAttribute('role', 'status');
+    const copy = document.createElement('button');
+    copy.type = 'button';
+    copy.className = 'episode-copy quote-button archive-button';
+    copy.innerHTML = '<img src="public/icons/clipboard.svg" alt="" width="18" height="18"><span>Copy quote</span>';
+    copy.setAttribute('aria-label', `Copy quote from ${episodeData.title}`);
+    let timer;
+    copy.addEventListener('click', async () => {
+      clearTimeout(timer);
+      try {
+        await navigator.clipboard.writeText(`“${quoteText}” — Reply All, ${episodeData.title}`);
+        status.textContent = 'Copied!';
+      } catch {
+        status.textContent = 'Couldn’t copy. Select the quote to copy it.';
+      }
+      timer = setTimeout(() => { status.textContent = ''; }, 3000);
+    });
+    actions.append(status, copy);
   }
-  episodeInfoHeader.appendChild(episodeInfo);
+  if (episodeData.spotifyLink) {
+    const link = document.createElement('a');
+    link.className = 'spotify-link';
+    link.href = episodeData.spotifyLink;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.innerHTML = '<span>Listen on Spotify</span> <img src="public/icons/arrow-up-right.svg" alt="" width="20" height="20">'
+    actions.appendChild(link);
+  } else {
+    const unavailable = document.createElement('span');
+    unavailable.className = 'episode-meta';
+    unavailable.textContent = 'Not available on Spotify';
+    actions.appendChild(unavailable);
+  }
+  episodeInfoHeader.appendChild(actions);
 
-  const episodeDescription = document.createElement('div');
+  const episodeDescription = document.createElement('p');
   episodeDescription.className = 'episode-description';
-  episodeDescription.textContent = episodeData.episodeDescription;
+  episodeDescription.textContent = `${episodeData.date} — ${episodeData.episodeDescription}`;
   episodeContainer.appendChild(episodeDescription);
 
   return episodeContainer;

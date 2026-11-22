@@ -35,6 +35,12 @@ export class Navbar {
         aboutLink.textContent = 'About';
         navLinks.appendChild(aboutLink);
 
+        [episodesLink, aboutLink].forEach((link) => {
+            if (new URL(link.href).pathname === window.location.pathname) {
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+
         navbar.appendChild(navLinks);
 
 
