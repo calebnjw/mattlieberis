@@ -34,7 +34,7 @@ async function initHome() {
   copyButton.className = 'quote-button quote-copy';
   copyButton.setAttribute('aria-label', 'Copy quote to clipboard');
   copyButton.title = 'Copy quote to clipboard';
-  copyButton.innerHTML = '<img src="public/icons/clipboard.svg" alt="Copy quote to clipboard">';
+  copyButton.innerHTML = '<img src="public/icons/clipboard.svg" alt="Copy quote to clipboard" width="20" height="20">';
   const copyStatus = document.createElement('span');
   copyStatus.className = 'quote-copy-status';
   copyStatus.setAttribute('role', 'status');

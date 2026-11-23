@@ -91,6 +91,7 @@ export function createEpisodeContainer(episodeData) {
   }
   const titleText = document.createElement('span');
   titleText.textContent = titleParts ? titleParts[2] : episodeData.title;
+  titleText.className = 'episode-title-text';
   episodeTitle.appendChild(titleText);
   episodeInfoHeader.appendChild(episodeTitle);
 
@@ -98,23 +99,50 @@ export function createEpisodeContainer(episodeData) {
   actions.className = 'episode-actions';
   if (hasQuote) {
     const status = document.createElement('span');
-    status.className = 'episode-copy-status';
+    status.className = 'episode-copy-status sr-only';
     status.setAttribute('role', 'status');
     const copy = document.createElement('button');
     copy.type = 'button';
     copy.className = 'episode-copy quote-button archive-button';
-    copy.innerHTML = '<img src="public/icons/clipboard.svg" alt="" width="18" height="18"><span>Copy quote</span>';
-    copy.setAttribute('aria-label', `Copy quote from ${episodeData.title}`);
-    let timer;
+    copy.innerHTML = `
+      <span aria-hidden="true">
+        <img src="public/icons/clipboard.svg" alt="" width="16" height="16">
+        Copy quote
+      </span>
+      <span class="episode-copy-confirmation" aria-hidden="true">
+        <img src="public/icons/check.svg" alt="" width="16" height="16">
+        Copied!
+      </span>`;
+    const copyLabel = `Copy quote from ${episodeData.title}`;
+    copy.setAttribute('aria-label', copyLabel);
+    let errorTimer;
     copy.addEventListener('click', async () => {
-      clearTimeout(timer);
+      clearTimeout(errorTimer);
+      status.textContent = '';
+      status.classList.add('sr-only');
+      copy.disabled = true;
       try {
         await navigator.clipboard.writeText(`“${quoteText}” — Reply All, ${episodeData.title}`);
-        status.textContent = 'Copied!';
       } catch {
+        copy.disabled = false;
+        status.classList.remove('sr-only');
         status.textContent = 'Couldn’t copy. Select the quote to copy it.';
+        errorTimer = setTimeout(() => {
+          status.textContent = '';
+          status.classList.add('sr-only');
+        }, 3000);
+        return;
       }
-      timer = setTimeout(() => { status.textContent = ''; }, 3000);
+
+      copy.dataset.copied = 'true';
+      copy.setAttribute('aria-label', `Copied quote from ${episodeData.title}`);
+      status.textContent = 'Quote copied to clipboard.';
+      setTimeout(() => {
+        delete copy.dataset.copied;
+        copy.setAttribute('aria-label', copyLabel);
+        status.textContent = '';
+        copy.disabled = false;
+      }, 2000);
     });
     actions.append(status, copy);
   }

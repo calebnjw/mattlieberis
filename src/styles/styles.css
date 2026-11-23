@@ -9,7 +9,7 @@
   --primary: #ff637e;
   --text: #292326;
   --border: rgba(116, 9, 55, 0.16);
-  --background: white;
+  --background: #ffffff;
   --panel: #ffffff;
   --nav-text: #584143;
   --hover: rgba(116, 9, 55, 0.08);
@@ -245,7 +245,7 @@ body {
   border-radius: 999px;
   background: #07a13d;
   color: white;
-  font-size: 0.8125rem;
+  font-size: 0.9rem;
   text-decoration: none;
 }
 
