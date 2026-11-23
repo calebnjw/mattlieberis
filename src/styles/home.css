@@ -1,0 +1,289 @@
+/* HOME PAGE LAYOUT */
+
+.home-page {
+  --drawer-peek-height: 3.5rem;
+  --page-width: 100%;
+  --page-padding: 5rem 1.25rem var(--drawer-peek-height);
+  --page-background: var(--home-glow), var(--home-background);
+  min-height: 100svh;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: max(28rem, calc(100svh - 5rem - var(--drawer-peek-height)));
+  padding: 4rem 0 3rem;
+}
+
+/* QUOTE AND CONTROLS */
+
+.home-quote {
+  position: relative;
+  width: min(100%, 56rem);
+  margin: 0;
+  padding: 0 1.5rem;
+  color: var(--home-heading);
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-align: center;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.home-quote::before,
+.home-quote::after {
+  position: absolute;
+  color: var(--home-muted);
+  opacity: 0.4;
+  font:
+    8rem/1 Georgia,
+    serif;
+  pointer-events: none;
+}
+
+.home-quote::before {
+  content: "“" / "";
+  top: -3.5rem;
+  left: 0.5rem;
+}
+
+.home-quote::after {
+  content: "”" / "";
+  bottom: -5rem;
+  right: 1rem;
+}
+
+.quote-controls {
+  --focus-offset: 3px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+.quote-next {
+  padding: 0 1.5rem;
+  color: white;
+  background: var(--primary);
+}
+
+.quote-next:hover {
+  background: #b12747;
+}
+
+.quote-next img {
+  filter: brightness(0) invert(1);
+}
+
+.quote-copy {
+  width: 3rem;
+  padding: 0;
+  color: var(--home-heading);
+  background: var(--home-soft);
+}
+
+.quote-copy:hover {
+  background: var(--home-muted);
+}
+
+.quote-copy img {
+  filter: var(--icon-filter);
+}
+
+.quote-copy-status {
+  /* Keep the live region out of the flex layout, even when it is empty. */
+  position: absolute;
+  bottom: calc(100% + 0.75rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 14rem;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.375rem;
+  background: #352f32;
+  color: #faeef2;
+  font-size: 0.75rem;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.quote-copy-status[data-visible="true"] {
+  opacity: 1;
+}
+
+.quote-shortcuts {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: var(--home-soft);
+  color: var(--nav-text);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.quote-shortcuts kbd {
+  font-family: var(--font-body);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  background: var(--home-muted);
+  color: var(--text);
+  font-weight: 800;
+}
+
+/* EPISODE DRAWER */
+
+.episode-drawer {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 2;
+  width: min(100%, 60rem);
+  max-height: 45svh;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  border-radius: 1rem 1rem 0 0;
+  background: var(--panel);
+  box-shadow: 0 12px 30px #352f3214;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.episode-drawer[data-animating="true"] {
+  overflow: hidden;
+}
+
+.episode-drawer-toggle {
+  --focus-offset: -4px;
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--panel);
+  cursor: pointer;
+  list-style: none;
+}
+
+.episode-drawer-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.episode-drawer-toggle::after {
+  content: "";
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-left: auto;
+  border: solid var(--nav-text);
+  border-width: 0 2px 2px 0;
+  transform: rotate(225deg);
+  transition: transform 300ms ease;
+}
+
+.episode-drawer-toggle[aria-expanded="true"]::after {
+  transform: rotate(45deg);
+}
+
+.episode-context-label,
+.episode-drawer-label {
+  color: var(--home-heading);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.episode-drawer-label {
+  margin: 0 0 0.375rem;
+}
+
+.episode-context-label {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.episode-context-title {
+  min-width: 0;
+  color: var(--home-heading);
+  font: 700 1.25rem/1.3 var(--font-heading);
+  letter-spacing: -0.015em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.episode-drawer-body {
+  padding: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.episode-drawer-description {
+  margin: 0;
+}
+
+.episode-links {
+  margin: 1rem 0 0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 639px) {
+  .home-quote {
+    padding-inline: 0.5rem;
+  }
+
+  .home-quote::before,
+  .home-quote::after {
+    font-size: 5rem;
+  }
+
+  .home-quote::before {
+    top: -2.5rem;
+  }
+
+  .home-quote::after {
+    bottom: -3.5rem;
+  }
+
+  .episode-drawer-toggle {
+    flex-wrap: wrap;
+    gap: 0.375rem 1rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .episode-context-label {
+    width: 100%;
+  }
+
+  .episode-context-title {
+    flex: 1;
+    font-size: 1rem;
+  }
+
+  .episode-drawer-body {
+    padding-inline: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-copy-status,
+  .episode-drawer-toggle::after {
+    transition: none;
+  }
+}

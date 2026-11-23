@@ -16,7 +16,7 @@ function initAbout() {
     <header class="page-intro">
       <h1>About This Project</h1>
     </header>
-    <section class="about-panel about-origin">
+    <section class="about-panel">
       <span class="section-badge">The Subject</span>
       <h2>Who is Matt Lieber?</h2>
       <p>Matt Lieber is an American media executive, producer, and entrepreneur best known as the co-founder and former president of Gimlet Media from 2014 to 2022. Gimlet Media was acquired by Spotify in 2019, and Matt Lieber continued to lead the company, until Gimlet Media was merged into Spotify Studios in 2023.</p>

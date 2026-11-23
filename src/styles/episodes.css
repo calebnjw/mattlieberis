@@ -1,0 +1,228 @@
+/* PAGE INTRO */
+
+.page-intro p {
+  max-width: 45rem;
+  margin: 0;
+  color: var(--nav-text);
+  font-size: 1.125rem;
+  line-height: 1.8;
+}
+
+/* SEARCH AND SORT */
+
+.archive-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.archive-sort {
+  position: relative;
+}
+
+.archive-search {
+  flex: 1;
+  min-width: 0;
+}
+
+.archive-controls input,
+.archive-controls select {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--home-soft);
+  color: var(--text);
+  font: inherit;
+}
+
+.archive-controls input::placeholder {
+  color: var(--nav-text);
+  opacity: 1;
+}
+
+.archive-controls select {
+  appearance: none;
+  padding-right: 3rem;
+  cursor: pointer;
+}
+
+.archive-sort::after {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: solid var(--nav-text);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  pointer-events: none;
+}
+
+/* EPISODE LIST AND CARDS */
+
+.episodes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.episode-card {
+  padding: clamp(1rem, 2vw, 1.5rem);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--panel);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.episode-card:hover,
+.episode-card:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 8px 24px rgba(116, 9, 55, 0.06);
+}
+
+.episode-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.episode-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.episode-title {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0;
+  min-width: 0;
+  font: 700 1.25rem/1.4 var(--font-heading);
+  letter-spacing: -0.025em;
+}
+
+.episode-number {
+  flex-shrink: 0;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  background: var(--home-soft);
+  color: var(--home-heading);
+  font: 700 0.8125rem/1.5 var(--font-body);
+}
+
+.episode-quote {
+  margin: 0 0 1.5rem;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 4px solid var(--primary);
+  color: var(--home-heading);
+  font: italic 700 clamp(1.125rem, 2.5vw, 1.5rem)/1.5 var(--font-heading);
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.episode-quote-missing {
+  color: var(--nav-text);
+  border-color: var(--home-muted);
+  font: italic 1rem/1.6 var(--font-body);
+  letter-spacing: normal;
+}
+
+.episode-meta {
+  flex-shrink: 0;
+  color: var(--nav-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.episode-description {
+  margin: 0;
+}
+
+/* EPISODE ACTIONS AND ARCHIVE BUTTONS */
+
+.episode-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.episode-copy-status {
+  color: var(--nav-text);
+  font-size: 0.875rem;
+}
+
+.archive-button {
+  padding: 0.75rem 1.25rem;
+  height: auto;
+  min-height: 3rem;
+  color: var(--home-heading);
+  background: var(--panel);
+}
+
+.archive-button:hover {
+  background: var(--home-soft);
+}
+
+.archive-button img {
+  filter: var(--icon-filter);
+}
+
+.episode-copy {
+  box-shadow: none;
+}
+
+/* PAGINATION AND EMPTY STATE */
+
+.archive-pagination,
+.archive-empty {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.archive-empty h2 {
+  font-family: var(--font-heading);
+  color: var(--home-heading);
+}
+
+.archive-pagination p {
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 639px) {
+  .archive-controls,
+  .episode-details-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .episode-title {
+    flex-wrap: wrap;
+  }
+
+  .episode-actions {
+    justify-content: flex-start;
+  }
+
+  .episode-copy-status:empty {
+    display: none;
+  }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+  .episode-card {
+    transition: none;
+  }
+}
