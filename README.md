@@ -15,15 +15,15 @@ This project is a compilation of all the affectionate, unexpected, and wonderful
 
 ### Home
 
-![Home page showing a Matt Lieber quote from “Silence And Respect” above the Next description and copy buttons.](./docs/screenshots/home.png)
+![Home page showing a Matt Lieber quote from “Fool’s Trade” with buttons to show another quote or copy it.](./docs/screenshots/home.png)
 
 ### Episodes
 
-![The archive of 203 episodes with search, sorting, and links to listen on Spotify.](./docs/screenshots/episodes.png)
+![Archive of 203 episodes with search and sort controls, plus Copy quote and Listen on Spotify buttons.](./docs/screenshots/episodes.png)
 
 ### About
 
-![The About page with a short biography of Matt Lieber, project files, and a related archive.](./docs/screenshots/about.png)
+![About page with a short biography of Matt Lieber and links to the project repository and a related archive.](./docs/screenshots/about.png)
 
 ## Features
 
@@ -52,7 +52,7 @@ Open the index.html file as a live preview in vscode to see your changes reflect
 | [src/styles/styles.css](./src/styles/styles.css)         | Shared styles, responsive layouts, and themes.                           |
 | [public/mattlieber.json](./public/mattlieber.json)       | Episode metadata and transcribed Matt Lieber descriptions.               |
 | [public/](./public/)                                     | Images, icons, and other static assets.                                  |
-| [docs/screenshots/](./docs/screenshots/)                 | Screenshots of the deployed Home, Episodes, and About pages.             |
+| [docs/screenshots/](./docs/screenshots/)                 | Desktop screenshots of the Home, Episodes, and About pages.              |
 | [stitch/matt-lieber-is/](./stitch/matt-lieber-is/)       | Design references, separate from the site’s page entry points.           |
 
 ## Contributing
