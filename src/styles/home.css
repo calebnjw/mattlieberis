@@ -69,8 +69,8 @@
 
 .quote-next {
   padding: 0 1.5rem;
-  color: white;
-  background: var(--primary);
+  color: var(--home-background);
+  background: var(--home-heading);
 }
 
 .quote-next:hover {
@@ -79,6 +79,14 @@
 
 .quote-next img {
   filter: brightness(0) invert(1);
+}
+
+:root[data-theme="dark"] .quote-next img {
+  filter: none;
+}
+
+:root[data-theme="dark"] .quote-next:hover {
+  background: var(--primary);
 }
 
 .quote-copy {
