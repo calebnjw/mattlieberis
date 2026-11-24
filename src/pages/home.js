@@ -1,4 +1,5 @@
 import { Navbar } from '../components/navbar.js';
+import { EpisodeDrawer } from '../components/episodeDrawer.js';
 import { loadEpisodeData, getRandomEpisodeData } from '../utils/episodeUtils.js';
 
 async function initHome() {
@@ -45,95 +46,12 @@ async function initHome() {
   shortcuts.innerHTML = '<kbd>Space</kbd> next description <span aria-hidden="true">•</span> <kbd>C</kbd> copy';
   app.appendChild(shortcuts);
 
-  // Native disclosure keeps the bottom drawer keyboard-accessible.
-  const drawer = document.createElement('details');
-  drawer.className = 'episode-drawer';
-  drawer.open = false;
-  const summary = document.createElement('summary');
-  summary.className = 'episode-drawer-toggle';
-  const contextLabel = document.createElement('span');
-  contextLabel.className = 'episode-context-label';
-  contextLabel.textContent = 'Episode';
-  const contextTitle = document.createElement('span');
-  contextTitle.className = 'episode-context-title';
-  summary.append(contextLabel, contextTitle);
-  drawer.appendChild(summary);
-  app.appendChild(drawer);
-
-  const episodeContainer = document.createElement('div');
-  episodeContainer.className = 'episode-drawer-body';
-  const synopsis = document.createElement('h2');
-  synopsis.className = 'episode-drawer-label';
-  synopsis.textContent = 'Synopsis';
-  const description = document.createElement('p');
-  description.className = 'episode-drawer-description';
-  const episodeLinks = document.createElement('div');
-  episodeLinks.className = 'episode-links';
-  const spotifyLink = document.createElement('a');
-  spotifyLink.className = 'spotify-link';
-  spotifyLink.innerHTML = '<span>Listen on Spotify</span> <img src="public/icons/arrow-up-right.svg" alt="" width="20" height="20">';
-  spotifyLink.target = '_blank';
-  spotifyLink.rel = 'noopener noreferrer';
-  const unavailable = document.createElement('span');
-  unavailable.textContent = 'This episode isn’t available on Spotify.';
-  episodeLinks.append(spotifyLink, unavailable);
-  episodeContainer.append(synopsis, description, episodeLinks);
-  drawer.appendChild(episodeContainer);
+  const drawer = new EpisodeDrawer((height) => {
+    document.body.style.setProperty('--drawer-peek-height', `${height}px`);
+  });
+  app.appendChild(drawer.element);
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let drawerExpanded = drawer.open;
-  let drawerAnimation = null;
-  summary.setAttribute('aria-expanded', String(drawerExpanded));
-
-  function collapsedDrawerHeight() {
-    const style = getComputedStyle(drawer);
-    return summary.getBoundingClientRect().height
-      + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
-  }
-
-  function finishDrawerAnimation() {
-    const animation = drawerAnimation;
-    drawerAnimation = null;
-    drawer.open = drawerExpanded;
-    delete drawer.dataset.animating;
-    animation?.cancel();
-    if (!drawerExpanded) drawer.scrollTop = 0;
-  }
-
-  summary.addEventListener('click', (event) => {
-    event.preventDefault();
-    // Start from the current rendered height so repeated clicks reverse smoothly.
-    const startHeight = drawer.getBoundingClientRect().height;
-    drawerAnimation?.cancel();
-    drawerAnimation = null;
-    drawerExpanded = !drawerExpanded;
-    summary.setAttribute('aria-expanded', String(drawerExpanded));
-    episodeContainer.inert = !drawerExpanded;
-
-    if (reducedMotion.matches || typeof drawer.animate !== 'function') {
-      finishDrawerAnimation();
-      return;
-    }
-
-    // Keep the contents rendered until the closing animation finishes.
-    drawer.open = true;
-    drawer.dataset.animating = 'true';
-    const endHeight = drawerExpanded
-      ? drawer.getBoundingClientRect().height
-      : collapsedDrawerHeight();
-    const animation = drawer.animate(
-      [{ height: `${startHeight}px` }, { height: `${endHeight}px` }],
-      { duration: 300, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'both' },
-    );
-    drawerAnimation = animation;
-    animation.onfinish = () => {
-      if (drawerAnimation === animation) finishDrawerAnimation();
-    };
-  });
-
-  reducedMotion.addEventListener('change', () => {
-    if (reducedMotion.matches && drawerAnimation) finishDrawerAnimation();
-  });
 
   let copyTimer;
   let copyRequest = 0;
@@ -152,18 +70,6 @@ async function initHome() {
       copyStatus.textContent = '';
     }
   });
-
-  function updateEpisode() {
-    mattLieberIs.textContent = `Matt Lieber ${episodeData.mattDescription.trim()}`;
-    contextTitle.textContent = `${episodeData.title}`;
-    description.textContent = episodeData.episodeDescription;
-    spotifyLink.hidden = !episodeData.spotifyLink;
-    unavailable.hidden = Boolean(episodeData.spotifyLink);
-    if (episodeData.spotifyLink) spotifyLink.href = episodeData.spotifyLink;
-    else spotifyLink.removeAttribute('href');
-    copyRequest += 1;
-    hideCopyStatus();
-  }
 
   function nextQuote() {
     episodeData = getRandomEpisodeData();
@@ -200,12 +106,14 @@ async function initHome() {
     }
   });
 
-  updateEpisode();
-  // Reserve only the collapsed header: opening the drawer overlays the page
-  // instead of moving the quote. Still adjust for header wrapping on mobile.
-  new ResizeObserver(() => {
-    document.body.style.setProperty('--drawer-peek-height', `${collapsedDrawerHeight()}px`);
-  }).observe(summary);
+  function updateEpisode() {
+    mattLieberIs.textContent = `Matt Lieber ${episodeData.mattDescription.trim()}`;
+    drawer.update(episodeData);
+    copyRequest += 1;
+    hideCopyStatus();
+  };
+
+  updateEpisode()
 }
 
 // Initialize when DOM is ready
