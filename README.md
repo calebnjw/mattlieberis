@@ -1,11 +1,6 @@
-> [!note]
-> This website has been reduced to a simple html and javascript website. Nothing crazy here, hoping this will make this project easier to build.
-
-## Getting Started
-
-Open the index.html file as a live preview in vscode to see your changes reflected in real time.
-
 # Matt Lieber is…
+
+Explore a randomly selected episode, with a button to load another.
 
 This project is a compilation of all the affectionate, unexpected, and wonderfully specific descriptions of Matt Lieber from the end credits of the Reply All podcast by Gimlet Media. Reply All ran from 24 November 2014 till 23 June 2022.
 
@@ -27,7 +22,7 @@ This project is a compilation of all the affectionate, unexpected, and wonderful
 
 ## Features
 
-- A random Matt Lieber description on each visit, with a button to load another.
+- Explore a randomly selected episode, with a button to load another.
 - Copy quotes with their episode attribution.
 - Home-page keyboard shortcuts: **Space** for the next description and **C** to copy the current quote when focus is outside interactive controls.
 - An expandable episode panel with a synopsis and a Spotify link when available.
@@ -58,25 +53,6 @@ Open the index.html file as a live preview in vscode to see your changes reflect
 ## Contributing
 
 Corrections, missing descriptions, and improvements to the site are welcome. [Open an issue](https://github.com/calebnjw/mattlieberis/issues) to flag a problem, or submit a pull request with a fix.
-
-## Todos
-
-1. ~~Current problem: Page is static. random number is generated once at build, and served to github pages:~~
-   1. ~~Necessary Change 1: rewrite page to use useEffect to generate random number on each load.~~
-   2. ~~Possible Option 1: store .json in local storage, and read from there.~~
-   3. ~~Possible Option 2: create static pages of every single quote using generateStaticParams (which enables page linking from the all page).~~
-
-2. ~~Another problem: IMAGES ARE NOT BEING REFERENCED CORRECTLY.~~
-   1. ~~I need to figure out how to configure the basePath correctly. it's trying to fetch from /replyall.jpg rather than /mattlieberis/replyall.jpg despite "isProd" returning "true".~~
-
-3. ~~Need to put the quote in the middle of the page.~~
-4. ~~Make the accordion with description expand upwards.~~
-5. ~~Make the about page one big accordion??? is that even good UX?~~
-6. ~~Add the (scramble in)[https://www.fancycomponents.dev/docs/components/text/scramble-in] effect for the quote.~~ (irrelevant because I'm not using react anymore. could be done in plain JS though.)
-7. ~~Add a github link in nav bar.~~
-8. ~~Do up the about page!~~
-   1. ~~About the podcast.~~
-   2. ~~About why I created this project! Why though?~~
 
 ### Correcting or adding episode data
 
@@ -113,10 +89,6 @@ Publish [index.html](./index.html), [episodes.html](./episodes.html), [about.htm
 
 For GitHub Pages, check the repository’s **Settings → Pages** for the configured publishing branch or workflow before deploying. Publish the static files above from that source. After deployment, check all three pages, episode-data loading, images, theme switching, and quote copying on the hosted URL.
 
-The publishing branch, workflow, and custom-domain configuration are not recorded here yet.
-
 ## License
 
-No license has been specified for the project code yet. A code license should be added before describing the project as available under a particular open-source license.
-
-Podcast quotations, episode synopses, and third-party artwork require separate attribution and are not automatically covered by any future code license.
+The project code is licensed under the MIT License. Podcast quotations, episode synopses, and third-party artwork remain subject to their respective rights holders’ terms.
