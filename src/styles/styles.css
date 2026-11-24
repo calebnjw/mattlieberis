@@ -243,14 +243,14 @@ body {
   gap: 4px;
   padding: 0.5rem 1rem;
   border-radius: 999px;
-  background: #07a13d;
+  background: #07792f;
   color: white;
   font-size: 0.9rem;
   text-decoration: none;
 }
 
 .spotify-link:hover {
-  background: #127936;
+  background: #0c5325;
 }
 
 .spotify-link img {
