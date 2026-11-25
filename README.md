@@ -8,17 +8,7 @@ This project is a compilation of all the affectionate, unexpected, and wonderful
 
 ## Screenshots
 
-### Home
-
-![Home page showing a Matt Lieber quote from “Fool’s Trade” with buttons to show another quote or copy it.](./docs/screenshots/home.png)
-
-### Episodes
-
-![Archive of 203 episodes with search and sort controls, plus Copy quote and Listen on Spotify buttons.](./docs/screenshots/episodes.png)
-
-### About
-
-![About page with a short biography of Matt Lieber and links to the project repository and a related archive.](./docs/screenshots/about.png)
+![Three captioned screenshots side by side. Home shows a Matt Lieber quote from “Fool’s Trade” with buttons to show another quote or copy it. Episodes shows the 203-episode archive with search and sort controls. About shows a short biography of Matt Lieber and links to the project repository and a related archive.](./docs/screenshots/all-pages.png)
 
 ## Features
 
